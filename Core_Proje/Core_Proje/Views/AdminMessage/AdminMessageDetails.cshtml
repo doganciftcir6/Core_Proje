@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Mesaj Detay Sayfası </p>
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label>Id</label>
+                    @Html.TextBoxFor(x=> x.WriterMessageId, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" name="Subject" value="@Model.Subject">
+                </div>
+                <div class="form-group">
+                    <label>Gönderen</label>
+                    <input type="text" class="form-control" name="SenderName" value="@Model.SenderName">
+                </div>
+                <div class="form-group">
+                    <label>Alıcı</label>
+                    <input type="text" class="form-control" name="ReceiverName" value="@Model.ReceiverName">
+                </div>
+                 <div class="form-group">
+                    <label>Tarih</label>
+                    <input type="text" class="form-control" name="Date" value="@Model.Date">
+                </div>
+                <div class="form-group">
+                    <label>İçerik</label>
+                    <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+                </div>
+                <a asp-action="ReceiverMessageList" class="btn btn-outline-primary mr-2">Admin Gelen Mesajlar</a>
+                <a asp-action="SenderMessageList" class="btn btn-outline-warning mr-2">Admin Giden Mesajlar</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+

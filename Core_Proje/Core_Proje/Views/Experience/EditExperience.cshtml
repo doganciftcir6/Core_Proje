@@ -1,0 +1,64 @@
+﻿@model EntityLayer.Concrete.Experience
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "EditExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post))
+{
+  @*  @Html.HiddenFor(x=> x.ExperienceId)
+    <br />
+    @Html.Label("Deneyim Başlığı")
+    @Html.TextBoxFor(x=> x.Name, new { @class = "form-control"})
+    <br />
+    <label>Tarih Bilgisi</label>
+    @Html.TextBoxFor(x=> x.Date, new { @class = "form-control"})
+    <br />
+    <label>Resim Yolu</label>
+    @Html.TextBoxFor(x=> x.ImageUrl, new { @class = "form-control"})
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x=> x.Description,10,3, new { @class = "form-control"})
+    <br />
+    <button type="submit" class="btn btn-outline-success">Güncelle</button>*@
+
+
+    //YENİ TEMA
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Deneyim Düzenleme Paneli </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Id</label>
+                        @Html.TextBoxFor(x=> x.ExperienceId, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input type="text" class="form-control" name="Name" value="@Model.Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        <input type="text" class="form-control" name="Date" value="@Model.Date">
+                    </div>
+                    <div class="form-group">
+                        <label>Görsel Url</label>
+                        <input type="text" class="form-control" name="ImageUrl" value="@Model.ImageUrl">
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <textarea asp-for="Description" class="form-control"  rows="6" ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+
+
